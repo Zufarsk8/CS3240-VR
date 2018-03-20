@@ -28,12 +28,33 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
     <script>
+        var x = 0;
         AFRAME.registerComponent('handle-events', {
             init: function() {
+                var stage = document.querySelector('#stage');
+
+                var planeEL = document.querySelector('a-plane');
+
+
+                console.log(stage)
                 var el = this.el; // <a-box>
                 el.addEventListener('click', function() {
                     el.setAttribute('src', "http://farm4.static.flickr.com/3263/2306001896_00dc94e196_o.jpg");
+                    x = x + 1;
+                    console.log("here", x)
+                    if (x == 2) {
+                        stage.setAttribute('geometry', {
+                            primitive: 'box',
+                            height: '1.5'
+                        })
+                        stage.setAttribute('position', {
+                            x: '0',
+                            y: '-3.331',
+                            z: '-7.658'
+                        })
+                    }
                 });
+
             }
         });
     </script>
@@ -63,7 +84,9 @@
         <a-plane src="http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg " position="0 -2 -4 " rotation="-90 0 0 " width="4 " height="4
             " color=" " shadow=" " scale="5 5 5 "></a-plane>
         <!-- Circle on floor -->
-        <a-plane src="https://3.bp.blogspot.com/-yCCw2sQVEuc/Vwx1XW2tXdI/AAAAAAAAAEk/7ljdja-i6MAVptZEy3Dj6wEyRcZeksFnwCLcB/s1600/wood-floor-texture-13.jpg " position="0 -1.95 -7.658" rotation="-90 0 0" width="4 " height="4
+        <!-- <a-plane src="https://3.bp.blogspot.com/-yCCw2sQVEuc/Vwx1XW2tXdI/AAAAAAAAAEk/7ljdja-i6MAVptZEy3Dj6wEyRcZeksFnwCLcB/s1600/wood-floor-texture-13.jpg " position="0 -1.95 -7.658" rotation="90 90 0" width="4 " height="4
+            " color=" " shadow="" scale="4 1 2.83" material="src:;color:black" geometry="primitive:box"></a-plane> -->
+        <a-plane id="stage" src="https://3.bp.blogspot.com/-yCCw2sQVEuc/Vwx1XW2tXdI/AAAAAAAAAEk/7ljdja-i6MAVptZEy3Dj6wEyRcZeksFnwCLcB/s1600/wood-floor-texture-13.jpg " position="0 -1.95 -7.658" rotation="-90 90 0" width="4 " height="4
             " color=" " shadow="" scale="4 4 2.83" material="src:;color:black" geometry="primitive:ring;radiusInner:1.12"></a-plane>
         <!-- top plane -->
         <a-plane src="http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg " position="0 9.553 -4" rotation="-90 0 0" width="4 " height="4
