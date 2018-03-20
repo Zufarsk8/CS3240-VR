@@ -1,0 +1,88 @@
+<!-- <head>
+    <title>My A-Frame Scene</title>
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <rw-room position="-8 0 -12" material="color:#866">
+            <rw-wall src="http://dreamicus.com/data/wall/wall-03.jpg" position="16 0 0" wall="height: 6"></rw-wall>
+            <rw-wall position="16 0 16" wall="height: 6"></rw-wall>
+            <rw-wall position="0 0 16" wall="height: 6"></rw-wall>
+            <rw-wall position="0 0 0" wall="height: 6">
+            </rw-wall>
+        </rw-room>
+        <rw-room position="0 0 0">
+        </rw-room>
+
+    </a-scene>
+</body> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <script>
+        AFRAME.registerComponent('handle-events', {
+            init: function() {
+                var el = this.el; // <a-box>
+                el.addEventListener('click', function() {
+                    el.setAttribute('src', "http://farm4.static.flickr.com/3263/2306001896_00dc94e196_o.jpg");
+                });
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <a-scene>
+
+
+
+        <a-camera>
+            <a-cursor></a-cursor>
+        </a-camera>
+
+        <!-- walls -->
+        <!-- left wall -->
+        <a-box position="-10.027 3.964043635466478 -3.702" color="#" shadow="" scale="20 12 1.08" material="color:#fffff" geometry="primitive:plane" src="" rotation="0 90 0" handle-events></a-box>
+        <!-- Front wall -->
+        <a-box position="-0.008 3.867 -13.662" color="#" shadow="" scale="20 12 1.08" material="" geometry="primitive:plane" src="" handle-events></a-box>
+        <!-- Right wall -->
+        <a-box position="9.947 3.784 -3.721" color="#" shadow="" scale="20 12 1.08" material="color:#fffff" geometry="primitive:plane" src="" rotation="180 90 180" handle-events=""></a-box>
+        <!-- back wall -->
+        <a-box position="-0.008 3.867 5.612" color="#" shadow="" scale="20 12 1.08" material="side:back" geometry="primitive:plane" src="" handle-events></a-box>
+        <!-- floor -->
+        <a-plane src="http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg " position="0 -2 -4 " rotation="-90 0 0 " width="4 " height="4
+            " color=" " shadow=" " scale="5 5 5 "></a-plane>
+        <!-- Circle on floor -->
+        <a-plane src="https://3.bp.blogspot.com/-yCCw2sQVEuc/Vwx1XW2tXdI/AAAAAAAAAEk/7ljdja-i6MAVptZEy3Dj6wEyRcZeksFnwCLcB/s1600/wood-floor-texture-13.jpg " position="0 -1.95 -7.658" rotation="-90 0 0" width="4 " height="4
+            " color=" " shadow="" scale="4 4 2.83" material="src:;color:black" geometry="primitive:ring;radiusInner:1.12"></a-plane>
+        <!-- top plane -->
+        <a-plane src="http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg " position="0 9.553 -4" rotation="-90 0 0" width="4 " height="4
+            " color=" " shadow="" scale="5 5 5" material="src:http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg;color:#FFF;side:back" geometry=""></a-plane>
+
+        <a-sky color="#ECECEC " material="shader:gradient;topColor:53 165 179;bottomColor:225 170 129" geometry=""></a-sky>
+
+        <a-entity position="1.103 1.016 -6.735" text="width:4;color:black;value:Choose your stage scene!">
+        </a-entity>
+        <a-entity position="0.57 6.616 -13.606" text="width:10;color:black;value:Click on the wall for audience;align:center">
+        </a-entity>
+
+        <!-- scene cards -->
+        <a-box position="1 -0.225 -6.735" color="#" shadow="" scale="1 1 1.08" material="color:black;src:;side:double" geometry="primitive:plane" src=""></a-box>
+        <a-box position="2.5 -0.225 -6.735" color="# " shadow="" scale="1 1 1.08" material="color:black;src:;side:double" geometry="primitive:plane" src=" "></a-box>
+        <a-box position="-0.5 -0.225 -6.735" color="#" shadow="" scale="1 1 1.08" material="color:black;src:;side:double" geometry="primitive:plane" src=""></a-box>
+        <a-box position="-2.0 -0.225 -6.735" color="# " shadow="" scale="1 1 1.08" material="color:black;src:;side:double" geometry="primitive:plane" src=""></a-box>
+    </a-scene>
+
+</body>
+
+</html>
