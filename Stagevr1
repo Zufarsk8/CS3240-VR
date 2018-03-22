@@ -1,0 +1,203 @@
+<!-- <head>
+    <title>My A-Frame Scene</title>
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
+</head>
+
+<body>
+    <a-scene>
+        <rw-room position="-8 0 -12" material="color:#866">
+            <rw-wall src="http://dreamicus.com/data/wall/wall-03.jpg" position="16 0 0" wall="height: 6"></rw-wall>
+            <rw-wall position="16 0 16" wall="height: 6"></rw-wall>
+            <rw-wall position="0 0 16" wall="height: 6"></rw-wall>
+            <rw-wall position="0 0 0" wall="height: 6">
+            </rw-wall>
+        </rw-room>
+        <rw-room position="0 0 0">
+        </rw-room>
+
+    </a-scene>
+</body> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Hello, WebVR! - A-Frame</title>
+    <meta name="description" content="Hello, WebVR! - A-Frame">
+    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script>
+    <script>
+        var x = 0;
+        AFRAME.registerComponent('handle-events', {
+            init: function() {
+                var stage = document.querySelector('#stage');
+
+                var planeEL = document.querySelector('a-plane');
+
+                // http://farm4.static.flickr.com/3263/2306001896_00dc94e196_o.jpg
+                console.log(stage)
+                var el = this.el; // <a-box>
+                el.addEventListener('click', function() {
+                    el.setAttribute('src', "");
+                    x = x + 1;
+                    console.log("here", x)
+                    if (x == 2) {
+                        stage.setAttribute('geometry', {
+                            primitive: 'box',
+                            height: '1.5'
+                        })
+                        stage.setAttribute('position', {
+                            x: '0',
+                            y: '-3.331',
+                            z: '-7.658'
+                        })
+                    }
+                });
+
+            }
+        });
+
+        AFRAME.registerComponent('btnclick', {
+            init: function() {
+                var btn1 = document.querySelector('#btn1');
+                var camera = document.querySelector('#camera');
+                var el = this.el; // <a-box>
+                el.addEventListener('click', function() {
+                    camera.setAttribute('position', {
+                        x: 0,
+                        y: 8,
+                        z: 0
+                    });
+                    camera.setAttribute('rotation', {
+                        x: 0,
+                        y: 90,
+                        z: 0
+                    });
+
+
+                });
+                // http://farm4.static.flickr.com/3263/2306001896_00dc94e196_o.jpg
+                console.log("btn1")
+
+
+
+            }
+        });
+        AFRAME.registerComponent('gotolift', {
+            init: function() {
+                var floordoor = document.querySelector('#floodoor');
+                var camera = document.querySelector('#camera');
+                var el = this.el; // <a-box>
+                el.addEventListener('click', function() {
+                    camera.setAttribute('position', {
+                        x: 0,
+                        y: 0,
+                        z: 0
+                    });
+                    camera.setAttribute('rotation', {
+                        x: 0,
+                        y: 90,
+                        z: 0
+                    });
+
+
+                });
+                // http://farm4.static.flickr.com/3263/2306001896_00dc94e196_o.jpg
+                console.log("btn1")
+
+
+
+            }
+        });
+    </script>
+</head>
+
+<body>
+
+
+    <a-scene>
+
+
+
+        <a-camera id="camera" rotation="0 -94.53803619658582 0">
+            <a-cursor></a-cursor>
+        </a-camera>
+
+        <!-- walls -->
+        <!-- Front wall -->
+        <a-box position="0.133 0.096 -3.82" color="#" shadow="" scale="7.2 6 1.11" material="" geometry="primitive:plane" src="" handle-events=""></a-box>
+        <!-- Right wall -->
+        <a-box position="3.416 0.117 0.056" color="#" shadow="" scale="8.31 6 1.08" material="color:#fffff" geometry="primitive:plane" src="" rotation="180 90 180" handle-events=""></a-box>
+        <!-- back wall -->
+        <a-box position="-0.034 -0.055 3.685" color="#" shadow="" scale="7.0600000000000005 6 1.08" material="side:back" geometry="primitive:plane" src="" handle-events=""></a-box>
+        <!-- left wall -->
+        <a-box position="-3.434 0.058 -0.325" color="#" shadow="" scale="8.13 6 1.08" material="color:#fffff" geometry="primitive:plane" src="" rotation="0 90 0" handle-events=""></a-box>
+
+
+
+        <!-- floor -->
+        <a-plane src="http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg " position="0 -2 -4 " rotation="-90 0 0 " width="4 " height="4
+            " color=" " shadow=" " scale="5 5 5 "></a-plane>
+        <!-- floor door -->
+        <a-plane id="floordoor" src="assets/woodfloor.jpg" rotation="-90 0 0" width="30" height="50" repeat="10 10" position="0 3.521 0" material="color:black" geometry="" scale="0.182 0.116 1" gotolift></a-plane>
+        <!-- Circle on floor -->
+        <!-- <a-plane src="https://3.bp.blogspot.com/-yCCw2sQVEuc/Vwx1XW2tXdI/AAAAAAAAAEk/7ljdja-i6MAVptZEy3Dj6wEyRcZeksFnwCLcB/s1600/wood-floor-texture-13.jpg " position="0 -1.95 -7.658" rotation="90 90 0" width="4 " height="4
+            " color=" " shadow="" scale="4 1 2.83" material="src:;color:black" geometry="primitive:box"></a-plane> -->
+        <!-- <a-plane id="stage" src="https://3.bp.blogspot.com/-yCCw2sQVEuc/Vwx1XW2tXdI/AAAAAAAAAEk/7ljdja-i6MAVptZEy3Dj6wEyRcZeksFnwCLcB/s1600/wood-floor-texture-13.jpg " position="0 -1.95 -7.658" rotation="-90 90 0" width="4 " height="4
+            " color=" " shadow="" scale="4 4 2.83" material="src:;color:black" geometry="primitive:ring;radiusInner:1.12"></a-plane> -->
+        <!-- top plane -->
+        <a-plane src="http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg " position="-0.037 3.014 -4" rotation="-90 0 0" width="4 " height="4
+        " color=" " shadow="" scale="5 5 5" material="src:http://3.bp.blogspot.com/-QOJgDm7gIek/VhrwWRL3i_I/AAAAAAAAIZA/fASX3UgfGUM/s1600/%2528CONCRETE%2B11%2529%2Bgranite%2Bwall%2Bsmooth%2Bdirt%2Bpillar%2Btexture.jpg;color:#FFF;side:back" geometry=""></a-plane>
+
+        <a-sky color="#ECECEC " material="shader:gradient;topColor:53 165 179;bottomColor:225 170 129" geometry=""></a-sky>
+
+
+        <!-- Stage area -->
+        <a-plane color="#CED175" height="30" width="30" position="-14.94 18.583 0" rotation="0 90 0" material="" geometry=""></a-plane>
+        <!-- Ground -->
+        <a-plane src="assets/woodfloor.jpg" rotation="-90 0 0" width="30" height="50" repeat="10 10" position="0 3.521 0" material="" geometry=""></a-plane>
+        <!-- Curtains -->
+        <a-plane color="#E83737" height="30" width="7" position="-9.054 18 -12.341" rotation="0 90 0" material="" geometry=""></a-plane>
+        <a-plane color="#E83737" height="30" width="7" position="1.907 18 -15.893" rotation="0 90 0" material="" geometry=""></a-plane>
+        <a-plane color="#E83737" height="30" width="7" position="11.737 18 -21.33" rotation="0 90 0" material="" geometry=""></a-plane>
+        <a-plane color="#E83737" height="30" width="7" position="-8.95 18 13.791" rotation="0 90 0" material="" geometry=""></a-plane>
+        <a-plane color="#E83737" height="30" width="7" position="1.799 18 15.658" rotation="0 90 0" material="" geometry=""></a-plane>
+        <a-plane color="#E83737" height="30" width="7" position="10.714 18 21.047" rotation="0 90 0" material="" geometry=""></a-plane>
+        <!-- lift door -->
+
+        <!-- actor -->
+        <a-sphere position="-0.3 12.4 0.892" radius="1" color="#4FA6AF">
+            <a-cylinder position="0 -5.076 -0.01" radius="0.5" height="8" color="#4FA6AF" material="" geometry=""></a-cylinder>
+        </a-sphere>
+        <!-- button 1 -->
+        <a-box id="btn1" position="2.959 0.942 -3.694" color="#" shadow="" scale="0.531 0.522 1.11" material="color:#000000" geometry="primitive:plane" src="" btnclick></a-box>
+
+        <!-- audience -->
+        <a-curvedimage src="assets/audience.jpg" height="30" radius="80" theta-length="72" rotation="0 53.228 0" position="-42.05 15.333000000000002 0" scale="0.8 0.8 0.8" material="" geometry="thetaLength:72"></a-curvedimage>
+
+
+        <!-- Camera + cursor. -->
+        <a-entity position="1.103 1.016 -6.735" text="width:4;color:black;value:Choose your stage scene!">
+        </a-entity>
+        <a-entity position="0.57 6.616 -13.606" text="width:10;color:black;value:Click on the wall for audience;align:center">
+        </a-entity>
+        <!-- panels -->
+        <a-plane src="assets/intropanel.png" height="15" width="10" position="-5.176 7.466 0" rotation="0 90 0"></a-plane>
+        <a-plane src="assets/buttonpanel.png" height="15" width="10" position="4.833 7.414 0" rotation="180 90 180"></a-plane>
+
+        <!-- poles -->
+        <a-cylinder src="assets/bystripes.jpg" position="4.754 7.405 -5.047" radius="0.2" height="15"></a-cylinder>
+        <a-cylinder src="assets/bystripes.jpg" position="-4.864 7.663 -5.047" radius="0.2" height="15"></a-cylinder>
+        <a-cylinder src="assets/bystripes.jpg" position="4.615 7.546 4.881" radius="0.2" height="15"></a-cylinder>
+        <a-cylinder src="assets/bystripes.jpg" position="-4.9 7.44 4.935" radius="0.2" height="15"></a-cylinder>
+
+        <!-- Ground -->
+        <a-plane src="assets/woodfloor.jpg" rotation="-90 0 0" width="10" height="10" repeat="10 10" position="-0.204 0 0"></a-plane>
+
+
+    </a-scene>
+
+</body>
+
+</html>
